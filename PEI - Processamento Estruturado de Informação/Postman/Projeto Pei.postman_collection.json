@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "dec93efe-2c35-4ad9-ad01-bc4b9bcf4de3",
+		"name": "Projeto Pei",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30978981",
+		"_collection_link": "https://gold-rocket-788948.postman.co/workspace/mongodb~0c5e0aab-86d8-454f-80e7-cf7c1df05226/collection/30978981-dec93efe-2c35-4ad9-ad01-bc4b9bcf4de3?action=share&source=collection_link&creator=30978981"
+	},
+	"item": [
+		{
+			"name": "getSalesReport BaseX",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8984/getSales?ano=2022&mes=03",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8984",
+					"path": [
+						"getSales"
+					],
+					"query": [
+						{
+							"key": "ano",
+							"value": "2022"
+						},
+						{
+							"key": "mes",
+							"value": "03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReturnsReport BaseX",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8984/getReturns?ano=2022&mes=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8984",
+					"path": [
+						"getReturns"
+					],
+					"query": [
+						{
+							"key": "ano",
+							"value": "2022"
+						},
+						{
+							"key": "mes",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

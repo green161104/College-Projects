@@ -1,0 +1,117 @@
+//primeiro, fez-se uma amostra de 10000 documentos do total de vendas, por questões de espaço.
+//Nesta agregação, toda a informação referente a vendas (cabeçalhos e linhas de venda, bem como os clientes) são transferidos para uma outra coleção.
+
+db.SalesHeader.aggregate([
+  {
+    $lookup: {
+      from: "Customer",
+      localField: "customer_id",
+      foreignField: "id",
+      as: "customer",
+    },
+  },
+  {
+    $lookup: {
+      from: "SalesLines",
+      localField: "invoice_id",
+      foreignField: "invoice_id",
+      as: "salesLines",
+    },
+  },
+  {
+    $project: {
+      date: 1,
+      invoice_id: 1,
+      "customer.address.city.city": 1,
+      "customer.address.country.country": 1,
+      "customer.address.postal_code": 1,
+      "customer.email": 1,
+      "customer.first_name": 1,
+      "customer.last_name": 1,
+      "customer.customerType": 1,
+      "customer.purchases": 1,
+      "salesHeader.invoice_id": 1,
+      "salesLines.quantity": 1,
+      "salesLines.total_with_vat": 1,
+      "salesLines.id": 1,
+      "salesLines.product_id": 1,
+      _id: 1,
+    },
+  },
+  {
+    $sample:
+      /**
+       * size: The number of documents to sample.
+       */
+      {
+        size: 10000,
+      },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "SalesInfo",
+  },
+])
+
+//a partir daqui, as operações são realizadas na nova coleção SalesInfo, o que torna as pesquisas mais eficientes, e poupa espaço.
+//começamos por adicionar a lista de produtos associada a cada venda
+
+db.SalesInfo.aggregate([
+  {
+    $lookup: {
+      from: "Product",
+      localField: "salesLines.product_id",
+      foreignField: "id",
+      as: "productsSold",
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "SalesInfo",
+  },
+])
+
+
+//depois, calculamos a receita total de cada venda.
+db.SalesInfo.aggregate([
+  {
+    $unwind: {
+      path: "$salesLines",
+    },
+  },
+  {
+    $group: {
+      _id: "$invoice_id",
+      total_sales: {
+        $sum: "$salesLines.total_with_vat",
+      },
+      invoice_id: {
+        $first: "$invoice_id",
+      },
+      date: {
+        $first: "$date",
+      },
+      salesLines: {
+        $first: "$salesLines",
+      },
+      customer: {
+        $first: "$customer",
+      },
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "SalesInfo",
+  },
+])
+
+

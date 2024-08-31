@@ -1,0 +1,77 @@
+<!-- ProductDetails.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Complex type for product details -->
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string"/>
+      <xs:element name="Brand" type="xs:string"/>
+      <xs:element name="Model" type="xs:string"/>
+      <xs:element name="Price" type="xs:decimal"/>
+      <xs:element name="PriceCategory" type="PriceCategoryType"/>
+      <xs:element name="PerformanceCategory" type="PerformanceCategoryType"/>
+      <xs:element name="CameraQuality" type="CameraQualityType"/>
+      <xs:element name="ScreenSize" type="ScreenSizeType"/>
+      <xs:element name="BatteryLife" type="BatteryLifeType"/>
+      <xs:element name="StorageSpace" type="StorageSizeType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!-- Complex type for product category -->
+  <xs:simpleType name="PriceCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Budget"/>
+      <xs:enumeration value="Mid-Range"/>
+      <xs:enumeration value="High-End"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+    <!-- Complex type for performance category -->
+  <xs:simpleType name="PerformanceCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Basic"/>
+      <xs:enumeration value="Standard"/>
+      <xs:enumeration value="High"/>
+      <xs:enumeration value="Gaming"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+      <!-- Complex type for camera category -->
+  <xs:simpleType name="CameraQualityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Basic"/>
+      <xs:enumeration value="Good"/>
+      <xs:enumeration value="Pro"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+      <!-- Complex type for screen category -->
+  <xs:simpleType name="ScreenSizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Small"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="Large"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+        <!-- Complex type for battery category -->
+  <xs:simpleType name="BatteryLifeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Short"/>
+      <xs:enumeration value="Average"/>
+      <xs:enumeration value="Long"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+          <!-- Complex type for storage category -->
+  <xs:simpleType name="StorageSizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Low"/>
+      <xs:enumeration value="Medium"/>
+      <xs:enumeration value="High"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>

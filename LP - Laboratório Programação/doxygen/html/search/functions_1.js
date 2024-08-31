@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['carregarmercados_0',['carregarMercados',['../mercados_8c.html#a601bdc2088f653f3ae58c4bf31a743d1',1,'carregarMercados(Mercados *mercados, char *ficheiro):&#160;mercados.c'],['../mercados_8h.html#a601bdc2088f653f3ae58c4bf31a743d1',1,'carregarMercados(Mercados *mercados, char *ficheiro):&#160;mercados.c']]],
+  ['carregarvendedores_1',['carregarVendedores',['../vendedor_8h.html#a2c14b32d29e659ee797085e080a82dda',1,'carregarVendedores(Vendedores *vendedores, char *ficheiro):&#160;vendedores.c'],['../vendedores_8c.html#a2c14b32d29e659ee797085e080a82dda',1,'carregarVendedores(Vendedores *vendedores, char *ficheiro):&#160;vendedores.c']]],
+  ['cleaninputbuffer_2',['cleanInputBuffer',['../input_8c.html#a11ac4d3ec555747d95fee8ae7aa18b5d',1,'cleanInputBuffer():&#160;input.c'],['../input_8h.html#a11ac4d3ec555747d95fee8ae7aa18b5d',1,'cleanInputBuffer():&#160;input.c']]],
+  ['comparardatas_3',['compararDatas',['../comissoes_8c.html#ae54667fea3d6dfcf8ee88125d2d67543',1,'compararDatas(Data dataInicialNova, Data dataFinalNova, Data dataInicial, Data dataFinal):&#160;comissoes.c'],['../comissoes_8h.html#ae54667fea3d6dfcf8ee88125d2d67543',1,'compararDatas(Data dataInicialNova, Data dataFinalNova, Data dataInicial, Data dataFinal):&#160;comissoes.c']]],
+  ['compararmercados_4',['compararMercados',['../listagens_8c.html#a9dfa3c09203eda981df80ebf554b4cfe',1,'compararMercados(const void *a, const void *b):&#160;listagens.c'],['../listagens_8h.html#a9dfa3c09203eda981df80ebf554b4cfe',1,'compararMercados(const void *a, const void *b):&#160;listagens.c']]],
+  ['criarmercado_5',['criarMercado',['../mercados_8c.html#ac5c49c5f118dbcedebbac04dd32e7dc8',1,'criarMercado(Mercados *mercados):&#160;mercados.c'],['../mercados_8h.html#ac5c49c5f118dbcedebbac04dd32e7dc8',1,'criarMercado(Mercados *mercados):&#160;mercados.c']]],
+  ['criarvendedor_6',['criarVendedor',['../vendedor_8h.html#a5f6591420463e43c32db8c3fc83189fd',1,'criarVendedor(Vendedores *vendedores):&#160;vendedores.c'],['../vendedores_8c.html#a5f6591420463e43c32db8c3fc83189fd',1,'criarVendedor(Vendedores *vendedores):&#160;vendedores.c']]]
+];

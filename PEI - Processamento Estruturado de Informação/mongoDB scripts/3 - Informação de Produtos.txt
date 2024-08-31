@@ -1,0 +1,149 @@
+//primeiro, começa-se por colocar a categoria dentro da subcategoria.
+
+db.SubCategory.aggregate([
+  {
+    $lookup:
+      /**
+       * from: The target collection.
+       * localField: The local join field.
+       * foreignField: The target join field.
+       * as: The name for the results.
+       * pipeline: Optional pipeline to run on the foreign collection.
+       * let: Optional variables to use in the pipeline field stages.
+       */
+      {
+        from: "Category",
+        localField: "category_id",
+        foreignField: "id",
+        as: "category",
+      },
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$category",
+      },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "SubCategory",
+  },
+])
+
+//de seguida, guarda-se esta informação na coleção que contem a informação que une cada produto à sua subcategoria
+db.SubCategoryProduct.aggregate([
+  {
+    $lookup:
+      /**
+       * from: The target collection.
+       * localField: The local join field.
+       * foreignField: The target join field.
+       * as: The name for the results.
+       * pipeline: Optional pipeline to run on the foreign collection.
+       * let: Optional variables to use in the pipeline field stages.
+       */
+      {
+        from: "SubCategory",
+        localField: "sub_category_id",
+        foreignField: "id",
+        as: "sub_category",
+      },
+  },
+  {
+    $unwind:
+      /**
+       * path: Path to the array field.
+       * includeArrayIndex: Optional name for index.
+       * preserveNullAndEmptyArrays: Optional
+       *   toggle to unwind null and empty values.
+       */
+      {
+        path: "$sub_category",
+      },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "SubCategoryProduct",
+  },
+])
+
+//depois, estes resultados são persistidos dentro de Product
+db.Product.aggregate(
+[
+  {
+    $lookup:
+      /**
+       * from: The target collection.
+       * localField: The local join field.
+       * foreignField: The target join field.
+       * as: The name for the results.
+       * pipeline: Optional pipeline to run on the foreign collection.
+       * let: Optional variables to use in the pipeline field stages.
+       */
+      {
+        from: "SubCategoryProduct",
+        localField: "id",
+        foreignField: "product_id",
+        as: "sub_categories",
+      },
+  },
+  {
+    $project: {
+      "5g": 1,
+      battery_capacity: 1,
+      brand: 1,
+      _id: 1,
+      fast_charging: 1,
+      id: 1,
+      internal_memory: 1,
+      list_price: 1,
+      os: 1,
+      model: 1,
+      primary_camera: 1,
+      processor_brand: 1,
+      ram_capacity: 1,
+      screen_size: 1,
+      "sub_categories.sub_category.category.name": 1,
+      "sub_categories.sub_category.name": 1,
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Product",
+  },
+])
+
+//por fim, a informação desta coleção é formatada de modo a que apenas o essencial seja apresentado
+
+db.Customer.aggregate([
+  {
+    $project: {
+      brand: 1,
+      id: 1,
+      list_price: 1,
+      model: 1,
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Product",
+  },
+])

@@ -1,0 +1,38 @@
+<!-- GeneralInfo.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Common complex type for address information -->
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="country" type="xs:string"/>
+      <xs:element name="zipCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Complex type for person information -->
+  <xs:complexType name="PersonInfo">
+    <xs:sequence>
+      <xs:element name="firstName" type="xs:string"/>
+      <xs:element name="lastName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Complex type for partner details -->
+  <xs:complexType name="Partner">
+    <xs:sequence>
+      <xs:element name="partnerName" type="xs:string"/>
+      <xs:element name="NIF" type="xs:string"/>
+      <xs:element name="address" type="Address"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Complex type for general information -->
+  <xs:complexType name="GeneralInfo">
+    <xs:sequence>
+      <xs:element name="partner" type="Partner"/>
+      <xs:element name="fiscalYear" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

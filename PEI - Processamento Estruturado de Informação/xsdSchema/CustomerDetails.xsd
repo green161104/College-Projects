@@ -1,0 +1,36 @@
+<!-- CustomerDetails.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="GeneralInfo.xsd"/>
+
+  <!-- Complex type for customer details -->
+  <xs:complexType name="Customer">
+    <xs:complexContent>
+      <xs:extension base="PersonInfo">
+        <xs:sequence>
+          <xs:element name="email" type="xs:string" minOccurs="0" maxOccurs="1" default="Unknown"/>
+          <xs:element name="address" type="Address"/>
+          <xs:element name="customerType" type="customerType"/>
+          <xs:element name="purchaseInfo" type="purchaseInfoType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Complex type for customer type -->
+  <xs:simpleType name="customerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="novo"/>
+      <xs:enumeration value="regular"/>
+      <xs:enumeration value="premium"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Complex type for purchase information -->
+  <xs:complexType name="purchaseInfoType">
+    <xs:sequence>
+      <xs:element name="numPurchases" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,91 @@
+<!-- ReturnDetails.xsd -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="ProductDetails.xsd"/>
+  <xs:include schemaLocation="GeneralInfo.xsd"/>
+   
+ <!-- Define a complex type for summary information on returns -->
+  <xs:complexType name="ReturnSummary">
+    <xs:sequence>
+      <xs:element name="NumberOfDistinctProductsReturned" type="xs:integer"/>
+      <!-- Add elements for other summary information -->
+      <xs:element name="ReturnsByCategory" type="ReturnsByCategoryList"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- Define a complex type for a list of sales by category -->
+  <xs:complexType name="ReturnsByCategoryList">
+    <xs:sequence>
+      <xs:element name="ReturnsByPrice" type="ReturnsByPrice" minOccurs="0" maxOccurs="1"/>
+      <xs:element name = "ReturnsByPerformance" type="ReturnsByPerformance" minOccurs="0" maxOccurs="1"/>
+      <xs:element name = "ReturnsByCamera" type="ReturnsByCamera" minOccurs="0" maxOccurs="1"/>
+      <xs:element name = "ReturnsByScreenSize" type="ReturnsByScreenSize" minOccurs="0" maxOccurs="1"/>
+      <xs:element name = "ReturnsByBattery" type="ReturnsByBattery" minOccurs="0" maxOccurs="1"/>
+      <xs:element name = "ReturnsByStorage" type="ReturnsByStorage" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <!--  SalesByCategory for PriceCategory --> 
+  
+  <xs:complexType name="ReturnsByPrice">
+    <xs:sequence>
+      <xs:element name="Budget" type="xs:integer"/>
+      <xs:element name="MidRange" type="xs:integer"/>
+      <xs:element name="HighEnd" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <!--  SalesByCategory for PerformanceCategory -->
+  
+  <xs:complexType name="ReturnsByPerformance">
+    <xs:sequence>
+      <xs:element name="Basic" type="xs:integer"/>
+      <xs:element name="Sandard" type="xs:integer"/>
+      <xs:element name="High" type="xs:integer"/>
+      <xs:element name="Gaming" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  SalesByCategory for Camera quality -->
+  
+  <xs:complexType name= "ReturnsByCamera">
+    <xs:sequence>
+      <xs:element name="Basic" type="xs:integer"/>
+      <xs:element name="Good" type="xs:integer"/>
+      <xs:element name="Pro" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  SalesByCategory for screen quality -->
+  
+  <xs:complexType name="ReturnsByScreenSize">
+    <xs:sequence>
+      <xs:element name="Small" type="xs:integer"/>
+      <xs:element name="Medium" type="xs:integer"/>
+      <xs:element name="Large" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  SalesByCategory for battery quality -->
+  
+  <xs:complexType name="ReturnsByBattery">
+    <xs:sequence>
+      <xs:element name="Short" type="xs:integer"/>
+      <xs:element name="Average" type="xs:integer"/>
+      <xs:element name="Long" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--  SalesByCategory for storage quality -->
+  
+  <xs:complexType name="ReturnsByStorage" >
+    <xs:sequence>
+      <xs:element name="Low" type="xs:integer"/>
+      <xs:element name="Medium" type="xs:integer"/>
+      <xs:element name="High" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>

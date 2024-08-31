@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/MyProject.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuProjectManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/CBLEdition.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyPartner.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/NoEditionsException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/SubmissionsFullException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/UserInputHandler.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/NoTasksException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyParticipant.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/MyTask.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuManager.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuPartner.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyContact.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/EditionAlreadyActiveException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/interfaces/EditionsManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuStartManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/IllegalProjectException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuEditionManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/NoProjectsException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/EditionsFullException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/MyEditionManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/IllegalEditionException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuParticipantManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyStudent.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/exceptions/IllegalSubmissionException.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuFacilitator.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyInstitution.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuStudent.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblElements/MySubmission.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuAdmin.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuTaskManagement.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/userInteraction/menus/MenuDisplay.java</file>
+            <file>file:/C:/Users/Sonia/Documents/NetBeansProjects/PP_PROJETO_FINAL/src/cblParticipants/MyFacilitator.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,10 @@
+0.0 Infinity 8.0 8.0 1.0 3.0 Infinity Infinity Infinity Infinity 
+9.0 Infinity 1.0 Infinity Infinity Infinity Infinity 0.0 Infinity 7.0 
+12.0 Infinity Infinity Infinity 1.0 Infinity 8.0 Infinity Infinity Infinity 
+Infinity 10.0 Infinity Infinity Infinity 12.0 Infinity Infinity 15.0 Infinity 
+Infinity 15.0 Infinity 3.0 Infinity Infinity 8.0 11.0 Infinity Infinity 
+2.0 Infinity 10.0 Infinity 8.0 Infinity Infinity Infinity 1.0 Infinity 
+Infinity Infinity 3.0 9.0 Infinity Infinity Infinity 13.0 Infinity Infinity 
+12.0 11.0 1.0 Infinity Infinity Infinity Infinity Infinity 8.0 9.0 
+12.0 6.0 11.0 Infinity Infinity Infinity 10.0 3.0 Infinity Infinity 
+1.0 Infinity Infinity 8.0 Infinity 12.0 Infinity Infinity Infinity Infinity 

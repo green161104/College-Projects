@@ -1,0 +1,43 @@
+<!--MonthlySalesReport.xsd: main file -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="GeneralInfo.xsd"/>
+  <xs:include schemaLocation="CustomerDetails.xsd"/>
+  <xs:include schemaLocation="ProductDetails.xsd"/>
+  <xs:include schemaLocation="SaleDetails.xsd"/>
+  <xs:include schemaLocation="ReturnDetails.xsd"/>
+
+  <xs:element name="MonthlySalesReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name= "Sale" type="Sale"/>
+        <xs:element name ="partnerInfo" type = "Partner"></xs:element>
+        <xs:element name="customerInfo" type="Customer" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="ListOfProducts" type="ProductList"/>
+        <xs:element name="ListOfSales" type="SalesList"/>
+        <!-- Add summarized information elements here -->
+        <xs:element name="NumberOfDistinctProducts" type="xs:integer"/>
+        <xs:element name="TotalSales" type="xs:decimal"/>
+        <xs:element name="NumberOfDistinctCustomers" type="xs:integer"/>
+        <xs:element name="SalesByCategory" type="SalesByCategoryList"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Define a complex type for a list of products -->
+  <xs:complexType name="ProductList">
+    <xs:sequence>
+      <xs:element name="Product" type="Product" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define a complex type for a list of sales -->
+  <xs:complexType name="SalesList">
+    <xs:sequence>
+      <xs:element name="Sale" type="Sale" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+</xs:schema>
+

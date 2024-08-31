@@ -1,0 +1,207 @@
+
+//primeiro: guardar a morada inteira na coleção address
+db.Address.aggregate([
+  {
+    $lookup: {
+      from: "City",
+      localField: "city_id",
+      foreignField: "city_id",
+      as: "city",
+    },
+  },
+  {
+    $lookup: {
+      from: "Country",
+      localField: "city.country_id",
+      foreignField: "country_id",
+      as: "country",
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Address",
+  },
+])
+
+
+//de seguida: juntar a morada na coleção do Customer
+db.Customer.aggregate([
+  {
+    $lookup: {
+      from: "Address",
+      localField: "address_id",
+      foreignField: "address_id",
+      as: "address",
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Customer",
+  },
+])
+
+
+//de seguida: criar um tipo de cliente para refletir as condições do enunciado:
+db.Customer.aggregate([
+  {
+    $addFields:
+      /**
+       * newField: The new field name.
+       * expression: The new field expression.
+       */
+      {
+        customerType: {
+          $switch: {
+            branches: [
+              {
+                case: {
+                  $and: [
+                    {
+                      $gte: [
+                        "$create_date",
+                        new Date(
+                          new Date().setFullYear(
+                            new Date().getFullYear() -
+                              1
+                          )
+                        ),
+                      ],
+                    },
+                    {
+                      $lt: [
+                        "$create_date",
+                        new Date(),
+                      ],
+                    },
+                  ],
+                },
+                then: "new",
+              },
+              {
+                case: {
+                  $gt: [
+                    "$create_date",
+                    {
+                      $toDate: {
+                        $subtract: [
+                          new Date(),
+                          5 *
+                            365 *
+                            24 *
+                            60 *
+                            60 *
+                            1000,
+                        ],
+                      },
+                    },
+                  ],
+                },
+                then: "premium",
+              },
+            ],
+            default: "regular",
+          },
+        },
+      },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Customer",
+  },
+])
+
+
+//de seguida: na coleção SalesHeader, criar uma agregação que retorna as vendas dos clientes nos últimos 3 anos.
+db.SalesHeader.aggregate([
+  {
+    $match: {
+      date: {
+        $gte: ISODate("2021-01-12T05:45:38Z"),
+        $lt: ISODate("2024-01-12T05:45:38Z"),
+      },
+    },
+  },
+  {
+    $group: {
+      _id: "$customer_id",
+      purchase_count: {
+        $sum: 1,
+      },
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "CustomerPurchases",
+  },
+])
+
+
+//persistir estes resultados na coleção customer
+
+db.Customer.aggregate([
+  {
+    $lookup: {
+      from: "CustomerPurchases",
+      localField: "id",
+      foreignField: "_id",
+      as: "purchases",
+    },
+  },
+  {
+    $project: {
+      address: 1,
+      customerType: 1,
+      email: 1,
+      first_name: 1,
+      last_name: 1,
+      id: 1,
+      "purchases.three_year_sales": 1,
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Customer",
+  },
+])
+
+
+//por fim, formatar os dados desta coleção para que apenas seja mantida a informação essencial.
+db.Customer.aggregate([
+  {
+    $project: {
+      "address.address": 1,
+      "address.city.city": 1,
+      "address.country.country": 1,
+      "address.postal_code": 1,
+      customerType: 1,
+      email: 1,
+      first_name: 1,
+      id: 1,
+      last_name: 1,
+      "purchases.purchase_count": 1,
+    },
+  },
+  {
+    $out:
+      /**
+       * Provide the name of the output collection.
+       */
+      "Customer",
+  },
+])
+

@@ -1,0 +1,49 @@
+<!-- MonthlyReturnsReport.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Include necessary schemas -->
+  <xs:include schemaLocation="GeneralInfo.xsd"/>
+  <xs:include schemaLocation="ProductDetails.xsd"/>
+  <xs:include schemaLocation="ReturnDetails.xsd"/>
+  
+  <!-- Define the main element for Monthly Returns Report -->
+  <xs:element name="MonthlyReturnsReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name ="partnerInfo" type = "Partner"></xs:element>
+        <xs:element name="returnsInfo" type="ReturnList"/>
+        <xs:element name="returnsSummary" type="ReturnSummary"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+
+  <!-- Define a complex type for a return -->
+  <xs:complexType name="Return">
+    <xs:sequence>
+      <xs:element name="ReturnInvoiceCode" type="xs:string"/>
+      <xs:element name="ReturnDate" type="xs:date"/>
+      <xs:element name="ProductDetails" type="ProductList"/>
+      <!-- Additional elements for return-specific information -->
+      <xs:element name="DaysToReturn" type="xs:integer"/>
+      <xs:element name="EarlyReturn" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+
+  <xs:complexType name="ProductList">
+    <xs:sequence>
+      <xs:element name="Product" type="Product" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <!-- Define a complex type for a list of returns -->
+  <xs:complexType name="ReturnList">
+    <xs:sequence>
+      <xs:element name="Return" type="Return" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+ 
+</xs:schema>
