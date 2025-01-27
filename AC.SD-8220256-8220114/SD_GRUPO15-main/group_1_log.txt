@@ -1,0 +1,17 @@
+[2024-12-12T18:59:04.257401300] low2: has joined the all chat!
+[2024-12-12T18:59:14.264164800] joao: has joined the all chat!
+[2024-12-12T19:06:39.844415600] low2: has joined the all chat!
+[2024-12-12T19:17:01.889527800] low2: has joined the all chat!
+[2024-12-12T19:25:01.136493600] low2: has joined the all chat!
+[2024-12-12T19:26:19.925837] low2: has joined the all chat!
+[2024-12-12T19:29:18.019412900] low2: has joined the all chat!
+[2024-12-12T19:30:46.079694300] low2: has joined the all chat!
+[2024-12-12T19:32:15.241422300] low2: has joined the all chat!
+[2024-12-12T19:53:39.214976300] joao: EMERGENCY_COMS_ACTIVATED_BY:joao:Group1
+[2024-12-12T19:53:39.226302700] juno: EMERGENCY_COMS_ACTIVATED_BY:joao:Group1
+[2024-12-12T19:54:05.846634500] joao: EMERGENCY_COMS_ACTIVATED_BY:joao:Group1
+[2024-12-12T19:54:05.847881500] juno: EMERGENCY_COMS_ACTIVATED_BY:joao:Group1
+[2024-12-13T18:34:35.861400600] User{name='juno', profile=HIGH}: olá !
+[2024-12-13T18:34:41.955525800] User{name='joao', profile=HIGH}: olá juno!
+[2024-12-13T18:34:47.799872900] User{name='juno', profile=HIGH}: como estás?
+[2024-12-13T18:34:55.619893200] User{name='joao', profile=HIGH}: está tudo bem e contigo?

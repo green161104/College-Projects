@@ -1,0 +1,20 @@
+{
+  "low2": {
+    "name": "low2",
+    "profile": "LOW",
+    "password": "low2",
+    "usernameId": "low2"
+  },
+  "joao": {
+    "name": "joao",
+    "profile": "HIGH",
+    "password": "joaojoao",
+    "usernameId": "joao"
+  },
+  "juno": {
+    "name": "juno",
+    "profile": "HIGH",
+    "password": "junojuno",
+    "usernameId": "juno"
+  }
+}

@@ -1,0 +1,13 @@
+[2024-12-12T18:59:04.257401300] low2: has joined the all chat!
+[2024-12-12T18:59:14.264164800] joao: has joined the all chat!
+[2024-12-12T19:06:39.844415600] low2: has joined the all chat!
+[2024-12-12T19:17:01.889527800] low2: has joined the all chat!
+[2024-12-12T19:25:01.136493600] low2: has joined the all chat!
+[2024-12-12T19:26:19.925837] low2: has joined the all chat!
+[2024-12-12T19:29:18.019412900] low2: has joined the all chat!
+[2024-12-12T19:30:46.079694300] low2: has joined the all chat!
+[2024-12-12T19:32:15.241422300] low2: has joined the all chat!
+[2024-12-12T21:19:17.558103800] low2: has joined the all chat!
+[2024-12-12T22:03:04.340965400] low2: has joined the all chat!
+[2024-12-12T22:13:34.043869900] low2: has joined the all chat!
+[2024-12-12T22:13:42.435858500] low2: EMERGENCY_COMS_ACTIVATED_BY:low2:Group0

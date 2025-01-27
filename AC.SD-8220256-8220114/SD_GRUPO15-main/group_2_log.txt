@@ -1,0 +1,8 @@
+[2024-12-12T18:59:17.635978500] User{name='joao', profile=HIGH}: olá low2
+[2024-12-12T18:59:22.004343900] User{name='low2', profile=LOW}: pois
+[2024-12-12T18:59:30.420493900] User{name='low2', profile=LOW}: isto de UDP n tá fácil
+[2024-12-12T18:59:35.078067900] User{name='joao', profile=HIGH}: pois n bro
+[2024-12-12T19:53:14.293508700] User{name='juno', profile=HIGH}: olá
+[2024-12-12T19:53:19.192729100] User{name='joao', profile=HIGH}: olá
+[2024-12-12T19:53:25.428983800] User{name='juno', profile=HIGH}: ta tudo?
+[2024-12-12T19:53:56.092131] User{name='joao', profile=HIGH}: oi
