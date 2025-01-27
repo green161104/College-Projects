@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  back-office:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: backOffice
+    ports:
+      - '5173:5173'
+    environment:
+      - NODE_ENV=development
+    stdin_open: true # This is to keep the container running
+    tty: true # This is to keep the container running
+    # volumes: # This don't work on Windows
+    #   - ./backOffice:/app
+    #   - ./backOffice/node_modules
+
+
+
+# comando: docker-compose -f docker-compose.dev.yaml up

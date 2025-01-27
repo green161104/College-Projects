@@ -1,0 +1,85 @@
+stages:
+  - build
+  - test
+
+# define que a pipeline só vai executar quando for um merge
+.restrictions:
+  rules:
+    # - if: '$CI_PIPELINE_SOURCE == "push"' # temporário, para testes
+    #   when: always
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"' # só executa quando for um merge
+      when: always
+
+.restrictions_dotnet:
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  before_script:
+    - cd WebAPI
+  extends: .restrictions
+
+.restrictions_react:
+  image: node:20-alpine
+  before_script:
+    - cd ./Web
+  extends: .restrictions
+
+dotnet-build:
+  stage: build
+  script:
+    - dotnet restore
+    - dotnet build
+  extends: .restrictions_dotnet
+  tags:
+    - dockerRunner
+
+dotnet-tests:
+  stage: test
+  script:
+    - dotnet restore
+    - dotnet test --collect:"XPlat Code Coverage"
+  artifacts:
+    paths:
+      - WebAPITests/TestResults/**/*.xml
+    expire_in: 1 week
+  extends: .restrictions_dotnet
+  tags:
+    - dockerRunner
+
+backoffice-build:
+  stage: build
+  script:
+    - cd ./BackOffice
+    - npm ci
+    - npm run build
+  extends: .restrictions_react
+  tags:
+    - dockerRunner
+
+backoffice-tests:
+  stage: test
+  script:
+    - cd ./BackOffice
+    - npm ci
+    - npm run test
+  extends: .restrictions_react
+  tags:
+    - dockerRunner
+
+frontoffice-build:
+  stage: build
+  script:
+    - cd ./FrontOffice
+    - npm ci
+    - npm run build
+  extends: .restrictions_react
+  tags:
+    - dockerRunner
+
+frontoffice-tests:
+  stage: test
+  script:
+    - cd ./FrontOffice
+    - npm ci
+    - npm run test
+  extends: .restrictions_react
+  tags:
+    - dockerRunner

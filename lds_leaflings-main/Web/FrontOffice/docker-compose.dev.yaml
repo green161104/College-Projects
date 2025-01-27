@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  front-office:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: frontOffice
+    ports:
+      - '5173:5173'
+    environment:
+      - NODE_ENV=development
+    stdin_open: true # This is to keep the container running
+    tty: true # This is to keep the container running
+
+
+
+# comando: docker-compose -f docker-compose.dev.yaml up

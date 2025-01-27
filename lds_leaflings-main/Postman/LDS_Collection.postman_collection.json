@@ -1,0 +1,5675 @@
+{
+	"info": {
+		"_postman_id": "78894438-81b8-44cd-b0e8-83ac9b077120",
+		"name": "LDS_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30978743"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do admin inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedAdminIdCollection\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"postmanAdmin\",\r\n  \"email\": \"postmanAdmin@postman.com\",\r\n  \"password\": \"postmanPassword\",\r\n  \"contact\": \"9336655\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Admin",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login With Created Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanAdmin@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Admin By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Admin/{{insertedAdminId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Admin",
+								"{{insertedAdminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Admin",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"postmanAdmin2\",\r\n  \"email\": \"postmanAdmin@postman2.com\",\r\n  \"password\": \"postmanPassword2\",\r\n  \"contact\": \"9336655\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Admin/{{insertedAdminIdCollection}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Admin",
+								"{{insertedAdminIdCollection}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Admin/{{insertedAdminIdCollection}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Admin",
+								"{{insertedAdminIdCollection}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromUsers",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromUsers@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/coisas/uycm0t2yfq4d1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromUsers@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUser2",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUser2@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "High",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "High",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-02 104253.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify User Preferences",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"careExperience\": \"Beginner\",\r\n  \"waterAvailability\": \"High\",\r\n  \"luminosityAvailability\": \"High\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/preferences/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"preferences",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plant",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminId",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": [
+										"/C:/Users/User/Pictures/coisas/cocasjpg.jpg",
+										"/C:/Users/User/Pictures/coisas/uycm0t2yfq4d1.png"
+									]
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Cheira bem",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Plants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Plant By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Plant By Name",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/search/{{insertedPlantName}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"search",
+								"{{insertedPlantName}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Plant",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"adminID\": {{insertedAdminId}},\r\n  \"name\": \"Rosa2\",\r\n  \"type\": \"Decorative\",\r\n  \"expSuggested\": \"Beginner\",\r\n  \"waterNeeds\": \"Low\",\r\n  \"luminosityNeeded\": \"Low\",\r\n  \"plantImage\": \"imagem.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserPlant",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Os homens esqueceram-se desta verdade, mas tu não a deves esquecer. Tu tornas-te eternamente responsável por tudo que cativas.",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 095415.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromPlants",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromPlants@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-12 180952.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromPlants@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All UserPlants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User UserPlants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Plant UserPlants Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Planta mesmo",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Desktop/leaflings_logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Task",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da task inserida na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedTaskId\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"adminId\": {{insertedAdminId}},\r\n  \"plantId\": {{insertedPlantId}},\r\n  \"taskName\": \"Regar\",\r\n  \"TaskDescription\": \"Enfiar água pela planta a dentro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task/{{insertedTaskId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task",
+								"{{insertedTaskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks By Plant Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task/plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task",
+								"plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tasks By Admin Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task/admin/{{insertedAdminId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task",
+								"admin",
+								"{{insertedAdminId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Task",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"adminId\": {{insertedAdminId}},\r\n  \"plantId\": {{insertedPlantId}},\r\n  \"taskName\": \"Regar2\",\r\n  \"TaskDescription\": \"Enfiar água pela planta a dentro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task/{{insertedTaskId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task",
+								"{{insertedTaskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Task/{{insertedTaskId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Task",
+								"{{insertedTaskId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Warnings",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromWarnings",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromWarnings@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929012",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 125349.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Warning",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedWarningId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": {{insertedUserId}},\r\n  \"location\": \"Guimarães\",\r\n  \"message\": \"Postman Warning Message\",\r\n  \"reminderDate\": \"2024-11-04T19:06:04.695Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Warning",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Warning"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Warnings By userId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Warning/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Warning",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diary",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Foi o tempo que dedicaste à tua rosa que a tornou tão especial para ti.",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-07 184055.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromDiaries",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromDiaries@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-06 115331.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromDiaries@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Diary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do Diary inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedDiaryId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userPlantId\": {{insertedUserPlantId}},\r\n  \"title\": \"Postman Diary\",\r\n  \"creationDate\": \"2024-11-04T19:21:50.493Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all diaries",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Diary By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary/{{insertedDiaryId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary",
+								"{{insertedDiaryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Diary By UserPlant Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary/userplant/{{insertedUserPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary",
+								"userplant",
+								"{{insertedUserPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Diary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userPlantId\": {{insertedUserPlantId}},\r\n  \"title\": \"Postman Diary2\",\r\n  \"creationDate\": \"2024-11-04T19:21:50.493Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary/{{insertedDiaryId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary",
+								"{{insertedDiaryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Diary",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary/{{insertedDiaryId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary",
+								"{{insertedDiaryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Mais uma plantinha",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-09-15 114553.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromLogs",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromLogs@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-11-15 110447.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromLogs@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Diary",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do Diary inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedDiaryId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userPlantId\": {{insertedUserPlantId}},\r\n  \"title\": \"Postman Diary\",\r\n  \"creationDate\": \"2024-11-04T19:21:50.493Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do Log inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedLogId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"diaryId\": {{insertedDiaryId}},\r\n  \"logDate\": \"2024-11-04T19:13:55.525Z\",\r\n  \"logDescription\": \"postman Log\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Logs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Log By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log/{{insertedLogId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log",
+								"{{insertedLogId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Logs By Diary Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log/diary/{{insertedDiaryId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log",
+								"diary",
+								"{{insertedDiaryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"diaryId\": {{insertedDiaryId}},\r\n  \"logDate\": \"2024-11-04T19:13:55.525Z\",\r\n  \"logDescription\": \"postman Log Modified\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log/{{insertedLogId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log",
+								"{{insertedLogId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Log",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Log/{{insertedLogId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Log",
+								"{{insertedLogId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Diary",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Diary/{{insertedDiaryId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Diary",
+								"{{insertedDiaryId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlant/{{insertedUserId}}/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlant",
+								"{{insertedUserId}}",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plant Match",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId1\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName1\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Descrição",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/coisas/cocasjpg.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId2\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName2\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa 2",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Descrição",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "intermediate",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/coisas/Captura de ecrã 2024-06-22 160944.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Plant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id e nome da planta inseridoa na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPlantId3\", body.id)\r",
+									"pm.collectionVariables.set(\"insertedPlantName3\", body.name)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminID",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Rosa 3",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Descrição",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Decorative",
+									"type": "text"
+								},
+								{
+									"key": "expSuggested",
+									"value": "intermediate",
+									"type": "text"
+								},
+								{
+									"key": "waterNeeds",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityNeeded",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "plantImage",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/coisas/Captura de ecrã 2024-06-01 172624.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromPlantMatch",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromPlantMatch@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 100948.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromPlantMatch@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId1\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId1}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId2\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId2}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add UserPlant 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do userPlant inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserPlantId3\", body.id)\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"plantId\": {{insertedPlantId3}},\r\n  \"userId\": {{insertedUserId}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Matching Plants By User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/match/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"match",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}/{{insertedPlantId1}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}",
+								"{{insertedPlantId1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}/{{insertedPlantId2}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}",
+								"{{insertedPlantId2}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete UserPlant 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/UserPlants/{{insertedUserId}}/{{insertedPlantId3}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"UserPlants",
+								"{{insertedUserId}}",
+								"{{insertedPlantId3}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId1}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId2}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId2}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Plant 3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Plant/{{insertedPlantId3}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Plant",
+								"{{insertedPlantId3}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ad",
+			"item": [
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Ad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do anúncio inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedAdId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminId",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-11-06T09:27:10.221Z",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-11-06T09:27:10.221Z",
+									"type": "text"
+								},
+								{
+									"key": "adFile",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 100948.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Ads",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ad By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ad StartDate By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/start/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"start",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ad EndDate By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/end/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"end",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ad creator By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/creator/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"creator",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ads count",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/count",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Inserted Ad",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "adminId",
+									"value": "{{insertedAdminId}}",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "startDate",
+									"value": "2024-11-06T09:27:10.221Z",
+									"type": "text"
+								},
+								{
+									"key": "endDate",
+									"value": "2024-11-06T09:27:10.221Z",
+									"type": "text"
+								},
+								{
+									"key": "adFile",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-02 113531.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ad",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Ad/{{insertedAdId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Ad",
+								"{{insertedAdId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromPayment",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromPayment@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 100214.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromPayment@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Payment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do pagamento inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPaymentId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": {{insertedUserId}},\r\n  \"title\": \"Mensalidade\",\r\n  \"creationDate\": \"2024-11-06T09:33:57.167Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment By User Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment/user/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment",
+								"user",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Existent Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);\r",
+									"pm.environment.set(\"insertedAdminId\", body.userId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{existentAdminEmail}}\",\r\n    \"password\": \"{{existentAdminPassword}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Payments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment/{{insertedPaymentId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment",
+								"{{insertedPaymentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Inserted Payment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": {{insertedUserId}},\r\n  \"title\": \"Anualidade\",\r\n  \"creationDate\": \"2024-11-06T09:33:57.167Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment/{{insertedPaymentId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment",
+								"{{insertedPaymentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  Inserted Payment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Payment/{{insertedPaymentId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Payment",
+								"{{insertedPaymentId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Inserted User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paypal",
+			"item": [
+				{
+					"name": "Register User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do user inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedUserId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "postmanUserFromPaypal",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "postmanUserFromPaypal@postman.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "postmanPassword",
+									"type": "text"
+								},
+								{
+									"key": "contact",
+									"value": "937929039",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Guimarães",
+									"type": "text"
+								},
+								{
+									"key": "careExperience",
+									"value": "Beginner",
+									"type": "text"
+								},
+								{
+									"key": "waterAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "luminosityAvailability",
+									"value": "Low",
+									"type": "text"
+								},
+								{
+									"key": "userAvatar",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Screenshots/Captura de ecrã 2024-06-01 100948.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API_URL}}/User",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Inserted User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o token de autenticação nas variáveis de ambiente\r",
+									"const body = pm.response.json()\r",
+									"pm.environment.set(\"authToken\", body.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"postmanUserFromPaypal@postman.com\",\r\n    \"password\": \"postmanPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Paypal Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Guardar o id do paypal order inserido na coleção\r",
+									"const body = pm.response.json()\r",
+									"pm.collectionVariables.set(\"insertedPaypalOrderId\", body.id)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Paypal/create-order",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Paypal",
+								"create-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Paypal Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userID\": {{insertedUserId}},\r\n  \"orderID\": \"{{insertedPaypalOrderId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/Paypal/complete-order",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"Paypal",
+								"complete-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/User/{{insertedUserId}}",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"User",
+								"{{insertedUserId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "insertedAdminId",
+			"value": ""
+		},
+		{
+			"key": "insertedUserId",
+			"value": ""
+		},
+		{
+			"key": "insertedPaypalOrderId",
+			"value": ""
+		},
+		{
+			"key": "insertedWarning",
+			"value": ""
+		},
+		{
+			"key": "insertedWarningId",
+			"value": ""
+		},
+		{
+			"key": "insertedAdId",
+			"value": ""
+		},
+		{
+			"key": "insertedPaymentId",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantId",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantName",
+			"value": ""
+		},
+		{
+			"key": "insertedUserPlantId",
+			"value": ""
+		},
+		{
+			"key": "insertedTaskId",
+			"value": ""
+		},
+		{
+			"key": "insertedDiaryId",
+			"value": ""
+		},
+		{
+			"key": "insertedLogId",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantId1",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantName1",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantId2",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantName2",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantId3",
+			"value": ""
+		},
+		{
+			"key": "insertedPlantName3",
+			"value": ""
+		},
+		{
+			"key": "insertedUserPlantId1",
+			"value": ""
+		},
+		{
+			"key": "insertedUserPlantId2",
+			"value": ""
+		},
+		{
+			"key": "insertedUserPlantId3",
+			"value": ""
+		},
+		{
+			"key": "insertedAdminIdCollection",
+			"value": ""
+		}
+	]
+}

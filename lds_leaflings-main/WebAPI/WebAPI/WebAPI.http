@@ -1,0 +1,14 @@
+﻿@WebAPI_HostAddress = 
+
+PUT {{WebAPI_HostAddress}}/api/userprofile
+Content-Type: application/json
+
+{
+  //UserProfileModel
+}
+
+###
+
+GET {{WebAPI_HostAddress}}/api/userplants
+
+###
