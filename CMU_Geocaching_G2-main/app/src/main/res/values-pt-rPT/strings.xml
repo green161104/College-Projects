@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CMU_Geocaching</string>
+    <string name="ab1_inversions">Inversions</string>
+    <string name="ab2_pose">Pose</string>
+    <string name="add_a_picture_of_your_spot">Adiciona uma foto da tua cache!</string>
+    <string name="cost_points">Isto custa 150 pontos!</string>
+    <string name="welcome_back">Bem-vindo!</string>
+    <string name="we_missed_you">Tivemos saudades tuas! Ajuda-nos a ver se és mesmo tu.</string>
+    <string name="register_prompt">Não tens conta? Regista-te!</string>
+
+    <string name="missing_location_permission_warning_english">Não existe permissão de localização.</string>
+    <string name="gps_is_disabled_english">GPS desativado.</string>
+    <string name="your_finds_english">Os teus achados</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="difficulty">Dificuldade</string>
+    <string name="rating">Rating</string>
+    <string name="location">Local</string>
+    <string name="lets_go">Vamos!</string>
+    <string name="cache_information">Informação da Cache</string>
+    <string name="find_cache">Encontrar Cache</string>
+    <string name="radius">Raio</string>
+    <string name="search_on_map">Procurar no mapa</string>
+    <string name="hint">Pista</string>
+    <string name="you_can_also_select_one_of_the_markers_on_the_map">Também podes só escolher um dos marcadores do mapa!</string>
+    <string name="check_out_this_location">Espreitar este sítio</string>
+    <string name="complete_objective">Completar Objetivo</string>
+    <string name="end_caching">Terminar Caching</string>
+    <string name="google_maps_is_not_installed">Google Maps não instalado.</string>
+    <string name="default_radius" translatable="false">5KM</string>
+    <string name="default_difficulty">Média</string>
+    <string name="points_earned"> pontos!</string>
+    <string name="youre_looking_for">Estás à procura de…</string>
+    <string name="time_passed">Tempo</string>
+    <string name="new_cache">Nova Cache</string>
+    <string name="helpful_desc_placeholder">Uma descrição que ajude outros cachers a encontrar!</string>
+    <string name="opinion_of_cache">O que achaste da cahe?</string>
+    <string name="cache_feedback_message">Obrigado pelo teu feedback! Isto ajuda-nos a manter a comunidade segura.</string>
+    <string name="return_to_homepage">Voltar à página inicial</string>
+    <string name="points_trivia_answer">Pontos</string>
+    <string name="rate_trivia_answer">Avaliar a minha experiência!</string>
+    <string name="awesome_job">Wow! Bom trabalho!</string>
+    <string name="missed_that_one">Ah, falhaste essa!</string>
+    <string name="well_done">Boa! Continua assim e serás um profissional daqui a nada!</string>
+    <string name="better_luck">Boa sorte para a próxima! Acerta para conseguires todos os pontos!</string>
+    <string name="found_it">Chegaste! Mas espera, ainda tens um desafio…</string>
+    <string name="submit">Responder!</string>
+    <string name="no_cache_selected">Não selecionaste uma cache!</string>
+    <string name="easy">Fácil</string>
+    <string name="medium">Médio</string>
+    <string name="hard">Difícil</string>
+    <string name="create_cache">Criar</string>
+    <string name="rate_like">Gostei</string>
+    <string name="rate_dislike">Desgostei</string>
+    <string name="switch_dark">Mudar para o modo escuro?</string>
+    <string name="switch_dark_desc">Parece que estás num síto bastante escuro. Gostavas de mudar para o modo escuro?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="hello_user">Olá</string>
+    <string name="ready_adventure">Pronto para a aventura?</string>
+    <string name="your_points">Os teus pontos</string>
+    <string name="create_a_new_cache">Criar uma cache</string>
+    <string name="homepage_points">150 pontos</string>
+    <string name="go_hunting">Ir à Caça de Caches!</string>
+    <string name="earn_more_points">Ganha mais pontos!</string>
+    <string name="cache_details">Detalhes da Cache</string>
+    <string name="close">Fechar</string>
+
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="name">Nome</string>
+    <string name="name_input">Introduz o teu nome</string>
+    <string name="pronouns">Pronomes</string>
+    <string name="email">Email</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="profile_picture">Foto de Perfil</string>
+    <string name="your_information">A tua informação</string>
+
+    <string name="email_input">Introduz o teu email</string>
+    <string name="password_input">Introduz a tua password</string>
+    <string name="password">Password</string>
+
+    <string name="fill_fields">Por favor preenche todos os campos!</string>
+    <string name="no_account">Não tens conta? Regista-te!</string>
+    <string name="name_is_required">Nome é obrigatório</string>
+    <string name="email_error">Por favor introduz um email válido.</string>
+    <string name="password_error">A tua password deve ter 8 caracteres.</string>
+    <string name="we_are_thrilled">Adoramos ter-te aqui. Mas primeiro, ajuda-nos a conhecer-te.</string>
+    <string name="password_helper">Pelo menos 8 caracteres, tenta usar um misto de números, letras, entre outros!</string>
+    <string name="register">Registar</string>
+    <string name="login">Login</string>
+
+    <string name="settings">Definições</string>
+    <string name="dark_mode">Moso Escuro</string>
+    <string name="language">Linguagem</string>
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="lithuanian">Lithuanian</string>
+
+    <string name="no_caches_found_criteria">Não encontrámos caches para estes filtros!</string>
+
+    <string name="history">Histórico</string>
+    <string name="homepage">Página Principal</string>
+    <string name="profile">Perfil</string>
+
+</resources>

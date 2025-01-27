@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CMU_Geocaching</string>
+    <string name="ab1_inversions">Inversions</string>
+    <string name="ab2_pose">Pose</string>
+    <string name="add_a_picture_of_your_spot">Pridėk vietovės nuotrauką!</string>
+    <string name="cost_points">This will cost 150 points!</string>
+    <string name="welcome_back">Sveiki sugrįžę!</string>
+    <string name="we_missed_you">Mes tavęs pasiilgome! Padėk mums žinoti, kad tai tu</string>
+    <string name="register_prompt">Neturi paskyros? Prisiregistruok!</string>
+
+    <string name="missing_location_permission_warning_english">Trūksta vietovės leidimo.</string>
+    <string name="gps_is_disabled_english">GPS yra išjungtas.</string>
+    <string name="your_finds_english">Tavo radiniai</string>
+    <string name="latitude">Platuma</string>
+    <string name="longitude">Ilguma</string>
+    <string name="difficulty">Sunkumas</string>
+    <string name="rating">Įvertinimas</string>
+    <string name="location">Vietovė</string>
+    <string name="lets_go">Keliaukim!</string>
+    <string name="cache_information">Cache Informacija</string>
+    <string name="find_cache">Rask Cache</string>
+    <string name="radius">Spindulys</string>
+    <string name="search_on_map">Ieškok žemėlapyje</string>
+    <string name="hint">Užuomina</string>
+    <string name="you_can_also_select_one_of_the_markers_on_the_map">Tu taip pat gali paspausti ant vieno iš žymeklių žemėlapyje!</string>
+    <string name="check_out_this_location">Apžvelgti šią vietovę</string>
+    <string name="complete_objective">Pabaigti paiešką</string>
+    <string name="end_caching">Atšaukti paiešką</string>
+    <string name="google_maps_is_not_installed">Įrenginyje nėra Google Maps.</string>
+    <string name="default_radius" translatable="false">5KM</string>
+    <string name="default_difficulty">Vidutinis</string>
+    <string name="points_earned">" gauti taškai!"</string>
+    <string name="youre_looking_for">Tu ieškai...</string>
+    <string name="time_passed">Praėjo laiko</string>
+    <string name="new_cache">Naujas Cache</string>
+    <string name="helpful_desc_placeholder">Įvesk naudingą aprašą, kad kiti žaidėjai žinotų, ko ieškoti!</string>
+    <string name="opinion_of_cache">Ką manei apie šį Cache?</string>
+    <string name="cache_feedback_message">Ačiū už tavo atsiliepimą! Tai padeda mūsų bendruomenei išlikti saugiai.</string>
+    <string name="return_to_homepage">Grįžti į pagrindinį langą</string>
+    <string name="points_trivia_answer">Taškai</string>
+    <string name="rate_trivia_answer">Įvertink savo patirtį!</string>
+    <string name="awesome_job">Vau! Pasirodei šauniai!</string>
+    <string name="missed_that_one">O ne! Šįkart nepataikei!</string>
+    <string name="well_done">Šaunu! Taip ir toliau!</string>
+    <string name="better_luck">Sėkmės kitą kartą! Atsakyk teisingai, kad gautum visus taškus!</string>
+    <string name="found_it">Tu tai radai! Tačiau palauk, tai dar ne pabaiga!</string>
+    <string name="submit">Atsakyti!</string>
+    <string name="no_cache_selected">Nepasirinktas joks Cache!</string>
+    <string name="easy">Lengvas</string>
+    <string name="medium">Vidutinis</string>
+    <string name="hard">Sunkus</string>
+    <string name="create_cache">Sukurti</string>
+    <string name="rate_like">Patinka</string>
+    <string name="rate_dislike">Nepatinka</string>
+    <string name="switch_dark">Įjungti tamsos rėžimą?</string>
+    <string name="switch_dark_desc">Aplink tave atrodo tamsoka. Ar nori įjungti tamsos rėžimą?</string>
+    <string name="yes">Taip</string>
+    <string name="no">Ne</string>
+    <string name="hello_user">Labas</string>
+    <string name="ready_adventure">Pasirengęs nuotykiui?</string>
+    <string name="your_points">Tavo taškai</string>
+    <string name="create_a_new_cache">Sukurti naują Cache!</string>
+    <string name="homepage_points">150 taškai</string>
+    <string name="go_hunting">Keliauk ieškoti Cache!</string>
+    <string name="earn_more_points">Gauk daugiau taškų!</string>
+    <string name="cache_details">Cache duomenys</string>
+    <string name="close">Uždaryti</string>
+
+    <string name="edit_profile">Redaguoti profilį</string>
+    <string name="name">Vardas</string>
+    <string name="name_input">Įvesk vardą</string>
+    <string name="pronouns">Įvardžiai</string>
+    <string name="email">El. paštas</string>
+    <string name="save">Išsaugoti</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="profile_picture">Profilio nuotrauka</string>
+    <string name="your_information">Tavo informacija</string>
+
+    <string name="email_input">Įvesk el. paštą</string>
+    <string name="password_input">Įvesk slaptažodį</string>
+    <string name="password">Slaptažodis</string>
+
+    <string name="fill_fields">Įvesk abu langus</string>
+    <string name="no_account">Neturi paskytos? Prisiregistruok</string>
+    <string name="name_is_required">Vardas yra privalomas</string>
+    <string name="email_error">Įvesk tinkamą el. paštą</string>
+    <string name="password_error">Slaptažodis privalo būti nors 8 simbolių ilgio</string>
+    <string name="we_are_thrilled">Mes nekantraujame tave turėti čia! Tačiau pirma, leisk mums tave pažinti</string>
+    <string name="password_helper">Nors 8 simboliai, naudok mišinį raidžių, skaitmenų bei specialiųjų simbolių!</string>
+    <string name="register">Prisiregistruok</string>
+    <string name="login">Prisijunk</string>
+
+    <string name="settings">Nustatymai</string>
+    <string name="dark_mode">Tamsos rėžimas</string>
+    <string name="language">Kalba</string>
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="lithuanian">Lithuanian</string>
+
+    <string name="no_caches_found_criteria">Nerasti jokie Cache pagal šiuos kriterijus!</string>
+
+    <string name="history">Istorija</string>
+    <string name="homepage">Pagrindinis</string>
+    <string name="profile">Profilis</string>
+
+</resources>

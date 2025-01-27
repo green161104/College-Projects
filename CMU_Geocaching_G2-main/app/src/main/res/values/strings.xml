@@ -1,0 +1,106 @@
+<resources>
+    <string name="app_name">CMU_Geocaching</string>
+    <string name="ab1_inversions">Inversions</string>
+    <string name="ab2_pose">Pose</string>
+    <string name="add_a_picture_of_your_spot">Add a picture of your spot!</string>
+    <string name="cost_points">This will cost 150 points!</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="we_missed_you">We\'ve missed you! Help us make sure it\'s really you</string>
+    <string name="register_prompt">Don\'t have an account? Register!</string>
+
+    <string name="missing_location_permission_warning_english">Missing location permission.</string>
+    <string name="gps_is_disabled_english">GPS is disabled</string>
+    <string name="your_finds_english">Your Finds</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="rating">Rating</string>
+    <string name="location">Location</string>
+    <string name="lets_go">Lets Go!</string>
+    <string name="cache_information">Cache Information</string>
+    <string name="find_cache">Find Cache</string>
+    <string name="radius">Radius</string>
+    <string name="search_on_map">Search On Map</string>
+    <string name="hint">Hint</string>
+    <string name="you_can_also_select_one_of_the_markers_on_the_map">You can also select one of the markers on the map!</string>
+    <string name="check_out_this_location">Check out this location</string>
+    <string name="complete_objective">Complete Objective</string>
+    <string name="end_caching">End Caching</string>
+    <string name="google_maps_is_not_installed">Google Maps is not installed.</string>
+    <string name="default_radius" translatable="false">5KM</string>
+    <string name="default_difficulty">Medium</string>
+    <string name="points_earned">  points!</string>
+    <string name="youre_looking_for">Your\'re looking for…</string>
+    <string name="time_passed">Time passed</string>
+    <string name="new_cache">New Cache</string>
+    <string name="helpful_desc_placeholder">A helpful description so cachers know what they\'re looking for!</string>
+    <string name="opinion_of_cache">What did you think of this cache?</string>
+    <string name="cache_feedback_message">Thank you for your feedback! It helps keep the community safe.</string>
+    <string name="return_to_homepage">Return to homepage</string>
+    <string name="points_trivia_answer">Points</string>
+    <string name="rate_trivia_answer">Rate my experience!</string>
+    <string name="awesome_job">Wow! Awesome job!</string>
+    <string name="missed_that_one">Awe, no! You missed that one!</string>
+    <string name="well_done">Well done! Keep going like that and you\'ll be a professional in no time!</string>
+    <string name="better_luck">Better luck next time! Get it right to get all the points!</string>
+    <string name="found_it">You found it! But wait, you\'re not out of the woods yet!</string>
+    <string name="submit">Submit!</string>
+    <string name="no_cache_selected">No cache selected!</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="create_cache">Create</string>
+    <string name="rate_like">Like</string>
+    <string name="rate_dislike">Dislike</string>
+    <string name="switch_dark">Switch to Dark Mode?</string>
+    <string name="switch_dark_desc">It seems quite dark around you. Would you like to enable dark mode?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="hello_user">Hello</string>
+    <string name="ready_adventure">Ready for adventure?</string>
+    <string name="your_points">Your points</string>
+    <string name="create_a_new_cache">Create a New Cache!</string>
+    <string name="homepage_points">150 points</string>
+    <string name="go_hunting">Go Hunting for Caches!</string>
+    <string name="earn_more_points">Earn more points!</string>
+    <string name="cache_details">Cache Details</string>
+    <string name="close">Close</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="name">Name</string>
+    <string name="name_input">Enter your name</string>
+    <string name="pronouns">Pronouns</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="your_information">Your Information</string>
+
+    <string name="email_input">Enter your email</string>
+    <string name="password_input">Enter your password</string>
+    <string name="password">Password</string>
+
+    <string name="fill_fields">Please fill in both fields</string>
+    <string name="no_account">Don\'t have an account? Register</string>
+    <string name="name_is_required">Name is required</string>
+    <string name="email_error">Please enter a valid email</string>
+    <string name="password_error">Password must be at least 8 characters long</string>
+    <string name="we_are_thrilled">We are thrilled to have you around! But first, help us get to know you</string>
+    <string name="password_helper">At least 8 characters, use a mix of letters, numbers, and special characters!</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+
+    <string name="settings">Settings</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="language">Language</string>
+    <string name="english" translatable="false">English</string>
+    <string name="portuguese" translatable="false">Portuguese</string>
+    <string name="lithuanian" translatable="false">Lithuanian</string>
+
+    <string name="no_caches_found_criteria">No caches found according to this criteria!</string>
+
+    <string name="history">History</string>
+    <string name="homepage">Homepage</string>
+    <string name="profile">Profile</string>
+
+</resources>
